@@ -32,8 +32,17 @@
     <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
         <?php
+        
+        require_once 'connection.php';
+
+
         $year = intval($_GET['year']);
+
         if($year >= 2021 && $year <= 2023) {
+            $sql = 'SELECT * FROM voyage WHERE YEAR(occured_on) = ' . $year;
+            $statement = $pdo->query($sql);
+            $results = $statement->fetchAll();
+            var_dump($results);
             include('voyage'. $year.'.html');
         } else {
             include('voyage2023.html');
