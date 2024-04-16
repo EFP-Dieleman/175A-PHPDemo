@@ -30,13 +30,39 @@
 
     <!-- !PAGE CONTENT! -->
     <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <?php
+        $monTableau = array(
+            "clé1" => "valeur1",
+            "clé2" => "valeur2",
+            "clé3" => "valeur3",
+            "clé4" => "valeur4",
+            "clé5" => "valeur5",
+            "clé6" => "valeur6",
+            "clé7" => "valeur7",
+            "clé8" => "valeur8",
+            "clé9" => "valeur9",
+            "clé10" => "valeur10"
+        );
+        require_once 'connection.php';
+
+        $sql = 'SELECT * FROM voyage WHERE YEAR(occured_on) = 2023';
+        $statement = $pdo->query($sql);
+        $results = $statement->fetchAll();
+
+        foreach ($results as $voyage) {
+            foreach ($voyage as $column => $value) {
+                echo '<label>' . $column . '</label><input value="' . $value . '">';
+            }
+        }
+        die;
+        ?>
 
         <?php
-        
+
         require_once 'connection.php';
 
         $year = intval($_GET['year']);
-        if($year >= 2021 && $year <= 2023) {
+        if ($year >= 2021 && $year <= 2023) {
             include('voyage.php');
         } else {
             include('voyage2023.html');

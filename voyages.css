@@ -19,3 +19,8 @@ h6 {
 .close{
     display:none;
 }
+
+label{
+    display:block;
+    margin-top:1rem;
+}
