@@ -13,7 +13,9 @@
     <!-- Sidebar (hidden by default) -->
     <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left close" style="z-index:2;width:40%;min-width:300px" id="mySidebar">
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
-        <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Food</a>
+        <a href="index.php?year=2023" onclick="w3_close()" class="w3-bar-item w3-button">2023</a>
+        <a href="index.php?year=2022" onclick="w3_close()" class="w3-bar-item w3-button">2022</a>
+        <a href="index.php?year=2021" onclick="w3_close()" class="w3-bar-item w3-button">2021</a>
         <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
     </nav>
 
@@ -29,54 +31,14 @@
     <!-- !PAGE CONTENT! -->
     <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
-        <!-- First Photo Grid-->
-        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-            <div class="w3-quarter">
-                <img src="https://picsum.photos/200/300?random=8" alt="Sandwich" style="width:100%">
-                <h3>The Perfect Sandwich, A Real NYC Classic</h3>
-                <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-            </div>
-            <div class="w3-quarter">
-                <img src="https://picsum.photos/200/300?random=7" alt="Steak" style="width:100%">
-                <h3>Let Me Tell You About This Steak</h3>
-                <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-            </div>
-            <div class="w3-quarter">
-                <img src="https://picsum.photos/200/300?random=6" alt="Cherries" style="width:100%">
-                <h3>Cherries, interrupted</h3>
-                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-                <p>What else?</p>
-            </div>
-            <div class="w3-quarter">
-                <img src="https://picsum.photos/200/300?random=5" alt="Pasta and Wine" style="width:100%">
-                <h3>Once Again, Robust Wine and Vegetable Pasta</h3>
-                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-            </div>
-        </div>
-
-        <!-- Second Photo Grid-->
-        <div class="w3-row-padding w3-padding-16 w3-center">
-            <div class="w3-quarter">
-                <img src="https://picsum.photos/200/300?random=1" alt="Popsicle" style="width:100%">
-                <h3>All I Need Is a Popsicle</h3>
-                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-            </div>
-            <div class="w3-quarter">
-                <img src="https://picsum.photos/200/300?random=2" alt="Salmon" style="width:100%">
-                <h3>Salmon For Your Skin</h3>
-                <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-            </div>
-            <div class="w3-quarter">
-                <img src="https://picsum.photos/200/300?random=3" alt="Sandwich" style="width:100%">
-                <h3>The Perfect Sandwich, A Real Classic</h3>
-                <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-            </div>
-            <div class="w3-quarter">
-                <img src="https://picsum.photos/200/300?random=4" alt="Croissant" style="width:100%">
-                <h3>Le French</h3>
-                <p>Lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-            </div>
-        </div>
+        <?php
+        $year = intval($_GET['year']);
+        if($year >= 2021 && $year <= 2023) {
+            include('voyage'. $year.'.html');
+        } else {
+            include('voyage2023.html');
+        }
+        ?>
 
         <!-- Pagination -->
         <div class="w3-center w3-padding-32">
