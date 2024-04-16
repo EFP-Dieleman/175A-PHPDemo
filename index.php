@@ -35,15 +35,9 @@
         
         require_once 'connection.php';
 
-
         $year = intval($_GET['year']);
-
         if($year >= 2021 && $year <= 2023) {
-            $sql = 'SELECT * FROM voyage WHERE YEAR(occured_on) = ' . $year;
-            $statement = $pdo->query($sql);
-            $results = $statement->fetchAll();
-            var_dump($results);
-            include('voyage'. $year.'.html');
+            include('voyage.php');
         } else {
             include('voyage2023.html');
         }
